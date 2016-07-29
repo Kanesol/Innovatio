@@ -10,15 +10,9 @@
 </head>
 
 <body>
-  <section class="SectionFour" id="feature">
-    <br>
-    <br>
-    <!--first map-->
     <div id="map"></div>
     <p>Seeing blank? Your location settings are currently turned off</p>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
-  </section>
-
-  <script src="js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
