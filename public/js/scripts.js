@@ -1,37 +1,41 @@
 //Google provided function to initialise Google geolocation API
 //Reference: https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
 function initMap() {
-
+  alert("hello world");
   // Try HTML5 geolocation.
+  setInterval(function() {
+
+  }, 10000);
+
   if (navigator.geolocation) {
+    console.log("yes");
     navigator.geolocation.getCurrentPosition(function(position) {
 
       //Gets the current position of the user
       var currPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    
-    //  var directionsService = new google.maps.DirectionsService;
-    //  var directionsDisplay = new google.maps.DirectionsRenderer;
+      var directionsService = new google.maps.DirectionsService;
+      var directionsDisplay = new google.maps.DirectionsRenderer;
 
       var map = new google.maps.Map(document.getElementById('map'), {
         center: currPos,
         zoom: 40
       });
 
-//      directionsDisplay.setMap(map);
-/*
+      directionsDisplay.setMap(map);
+
       var onChangeHandler = function() {
               calculateAndDisplayRoute(directionsService, directionsDisplay);
             };
 
             document.getElementById('end').addEventListener('change', onChangeHandler);
-*/
+
 
       var infoWindow = new google.maps.InfoWindow({
         map: map
       });
 
       var marker = null;
-
+      console.log("here");
       //updates the current position every 5 seconds on the google map
       function autoUpdate() {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -76,6 +80,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: Your browser doesn\'t support geolocation.');
 }
 
+
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
   var pos = new google.maps.LatLng(position.coords.latitude,
@@ -96,7 +101,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 // helper function for getting the data set
 function httpGet() {
   var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", "put url here", false);
+  xmlHttp.open("GET", "u", false);
   xmlHttp.send(null);
-  return xmlHttp.responseText;
+  alert(xmlHttp.responseText);
 }
