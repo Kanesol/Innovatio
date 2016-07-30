@@ -8,11 +8,24 @@ function initMap() {
 
       //Gets the current position of the user
       var currPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    
+    //  var directionsService = new google.maps.DirectionsService;
+    //  var directionsDisplay = new google.maps.DirectionsRenderer;
 
       var map = new google.maps.Map(document.getElementById('map'), {
         center: currPos,
         zoom: 40
       });
+
+//      directionsDisplay.setMap(map);
+/*
+      var onChangeHandler = function() {
+              calculateAndDisplayRoute(directionsService, directionsDisplay);
+            };
+
+            document.getElementById('end').addEventListener('change', onChangeHandler);
+*/
+
       var infoWindow = new google.maps.InfoWindow({
         map: map
       });
@@ -62,6 +75,23 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: The Geolocation service failed.' :
     'Error: Your browser doesn\'t support geolocation.');
 }
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+
+  var pos = new google.maps.LatLng(position.coords.latitude,
+                                        position.coords.longitude);
+     directionsService.route({
+       origin: pos,
+       destination: document.getElementById('end').value,
+       travelMode: 'DRIVING'
+     }, function(response, status) {
+       if (status === 'OK') {
+         directionsDisplay.setDirections(response);
+       } else {
+         window.alert('Directions request failed due to ' + status);
+       }
+     });
+   }
 
 // helper function for getting the data set
 function httpGet() {

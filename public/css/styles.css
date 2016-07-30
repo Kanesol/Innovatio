@@ -1,10 +1,23 @@
 #map {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0px;
   left: 0px;
 }
+#floating-panel {
+     position: absolute;
+     top: 10px;
+     left: 25%;
+     z-index: 5;
+     background-color: #fff;
+     padding: 5px;
+     border: 1px solid #999;
+     text-align: center;
+     font-family: 'Roboto','sans-serif';
+     line-height: 30px;
+     padding-left: 10px;
+   }
 .hwaccel {
   -webkit-transform: translateZ(0);
 }
